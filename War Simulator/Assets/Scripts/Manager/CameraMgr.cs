@@ -17,6 +17,7 @@ public class CameraMgr : MonoBehaviour
     Vector3 move;
 
     [SerializeField] float runSpeed = 5.0f;
+    [SerializeField] float upSpeed = 1.0f;
     [SerializeField] float gravity = 9.81f;
     [SerializeField] float mouseSensitivity = 2.0f;
 
@@ -171,12 +172,12 @@ public class CameraMgr : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            move.y += 1f;
+            move.y += 1f * upSpeed;
         }
 
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
-            move.y -= 1f;
+            move.y -= 1f * upSpeed;
         }
     }
 

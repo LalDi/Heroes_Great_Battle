@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 20
+  upSpeed: 5
   gravity: 9.81
   mouseSensitivity: 10
 --- !u!143 &40231356
@@ -7330,6 +7331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5
+  upSpeed: 1
   gravity: 9.81
   mouseSensitivity: 2
 --- !u!81 &2110339318

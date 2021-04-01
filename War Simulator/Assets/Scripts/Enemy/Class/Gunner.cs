@@ -46,9 +46,9 @@ public class Gunner : BT, AnimInterface
 
     [Range(0, 6)] int bullet = 6;
 
-    [SerializeField] float attackDist = 20f; // 공격 범위
-    [SerializeField] float trackDist = 30f;  // 추적 범위
-    [SerializeField] float dangerDist = 5f;  // 도주 범위
+    [SerializeField] float attackDist = 50f; // 공격 범위
+    [SerializeField] float trackDist = 70f;  // 추적 범위
+    [SerializeField] float dangerDist = 20f;  // 도주 범위
 
     [SerializeField] float enemyHP, enemyMaxHP;
     [SerializeField] float enemyDmg;

@@ -1109,4 +1109,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Stage2.unity
   - Assets/Scenes/Stage3.unity
   - Assets/Scenes/Loading.unity
-  playerPath: "C:/Users/md101/OneDrive/\uBC14\uD0D5 \uD654\uBA74/Backgrounds/ONProject/Build/ONProject.exe"
+  playerPath: C:/Users/user/Desktop/Bule/hgb/ONProject.exe

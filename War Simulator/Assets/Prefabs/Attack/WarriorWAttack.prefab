@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4489901213232184523}
   - component: {fileID: 8819450480222979359}
   m_Layer: 0
-  m_Name: WarriorMAttack 1
+  m_Name: WarriorWAttack
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95940187172966830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
