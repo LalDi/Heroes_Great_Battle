@@ -36,6 +36,8 @@ public class EnemyAttack : MonoBehaviour
 
     #endregion
 
+    public GameObject Attacker;
+
     void Start()
     {
         rigd = GetComponent<Rigidbody>();
@@ -80,6 +82,8 @@ public class EnemyAttack : MonoBehaviour
     {
         while (true)
         {
+            yield return null;
+
             t += Time.deltaTime;
 
             var tx = StartPos.x + vx * t;
@@ -93,8 +97,6 @@ public class EnemyAttack : MonoBehaviour
 
             if (t >= this.dat)
                 break;
-
-            yield return null;
         }
         //Debug.Log("도착");
         gameObject.SetActive(false);
@@ -136,7 +138,7 @@ public class EnemyAttack : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.activeSelf && !other.CompareTag("Attack"))
-            if (attackType == Class.Gunner)
+            if (attackType == Class.Gunner && Attacker != other.gameObject)
                 gameObject.SetActive(false);
     }
 }

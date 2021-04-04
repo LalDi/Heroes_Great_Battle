@@ -76,6 +76,7 @@ public class Warrior : BT
         if (!UIMgr.gameStart)
         {
             StopAllCoroutines();
+            InitStat();
             agent.isStopped = true;
             startBT = false;
             animator.SetBool("isMoving", false);
@@ -263,10 +264,11 @@ public class Warrior : BT
     {
         if (enemyHP <= 0f)
         {
+            animator.SetBool("isAttack", false);
             animator.SetBool("isMoving", false);
             animator.SetBool("isDead", true);
-            StopCoroutine("BehaviourTree");
-            gameObject.SetActive(false);
+            agent.isStopped = true;
+            //StopCoroutine("BehaviourTree");
             return true;
         }
         return false;
@@ -288,9 +290,9 @@ public class Warrior : BT
             animator.SetBool("isAttack", true);
             animator.SetBool("isMoving", false);
             if (gender == Gender.Man)
-                attack = ObjectMgr.SpawnPool("WarriorMAttack", transform.position, transform.rotation);
+                attack = ObjectMgr.SpawnPool("WarriorMAttack", transform.position, transform.rotation, gameObject);
             else
-                attack = ObjectMgr.SpawnPool("WarriorWAttack", transform.position, transform.rotation);
+                attack = ObjectMgr.SpawnPool("WarriorWAttack", transform.position, transform.rotation, gameObject);
 
 
             Vector3 dir = target.transform.position - transform.position;
@@ -305,11 +307,13 @@ public class Warrior : BT
     {
         if (other.name.Contains("WarriorMAttack"))
         {
-            enemyHP -= (int)data[(int)Class.Warrior_M]["Damage"];
+            if (other.GetComponent<EnemyAttack>().Attacker != gameObject)
+                enemyHP -= (int)data[(int)Class.Warrior_M]["Damage"];
         }
         if (other.name.Contains("WarriorWAttack"))
         {
-            enemyHP -= (int)data[(int)Class.Warrior_W]["Damage"];
+            if (other.GetComponent<EnemyAttack>().Attacker != gameObject)
+                enemyHP -= (int)data[(int)Class.Warrior_W]["Damage"];
         }
         if (other.name.Contains("AcherAttack"))
         {

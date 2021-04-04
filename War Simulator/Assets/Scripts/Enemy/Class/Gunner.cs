@@ -8,8 +8,8 @@ public class Gunner : BT, AnimInterface
     #region Behavior Tree
     Selector root = new Selector();
 
-    Selector behavior = new Selector();      //행동
     Actions dead = new Actions();            //사망
+    Selector behavior = new Selector();      //행동
 
     Selector atkOrdef = new Selector();      //공/방
     Actions track = new Actions();           //추적
@@ -89,6 +89,7 @@ public class Gunner : BT, AnimInterface
         patrol.AddChild(arrive);
         patrol.AddChild(move);
 
+        dead.actionFunc = Dead;
         track.actionFunc = Track;
         threat.actionFunc = Threat;
         escape.actionFunc = Escape;
@@ -98,7 +99,6 @@ public class Gunner : BT, AnimInterface
         shoot.actionFunc = Shoot;
         arrive.actionFunc = Arrive;
         move.actionFunc = Move;
-        dead.actionFunc = Dead;
     }
 
     void Awake()
@@ -106,7 +106,7 @@ public class Gunner : BT, AnimInterface
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         targetPos = transform.position;
-        muzzle = transform.Find("Cylinder").Find("Muzzle").gameObject;
+        muzzle = transform.Find("Muzzle").gameObject;
 
         data = DataMgr.Read("ClassStats");
         InitStat();
@@ -125,6 +125,7 @@ public class Gunner : BT, AnimInterface
         if (!UIMgr.gameStart)
         {
             StopAllCoroutines();
+            InitStat();
             agent.isStopped = true;
             startBT = false;
             animator.SetBool("isMoving", false);
@@ -225,7 +226,7 @@ public class Gunner : BT, AnimInterface
             Vector3 shot = (target.transform.position - transform.position) + new Vector3(Random.Range(-5f, 5f), 0, 0);
             //print("위협사격(거너) , shot : " + shot + "bullet : " + bullet);
             transform.LookAt(target.transform);
-            ObjectMgr.SpawnPool("GunnerAttack", muzzle.transform.position, Quaternion.Euler(shot));
+            ObjectMgr.SpawnPool("GunnerAttack", muzzle.transform.position, Quaternion.Euler(shot), gameObject);
             bullet--;
             yield return new WaitForSeconds(0.3f);
             StartCoroutine(ThreatShoot(target, ++count));
@@ -353,7 +354,7 @@ public class Gunner : BT, AnimInterface
             animator.SetBool("isMoving", false);
             transform.rotation = rot;
             transform.LookAt(target.transform);
-            ObjectMgr.SpawnPool("GunnerAttack", muzzle.transform.position, rot);
+            ObjectMgr.SpawnPool("GunnerAttack", transform.position, rot, gameObject);
             Debug.Log("Shoot (Target : " + target.name + ")");
             bullet--;
             return true;
@@ -407,10 +408,13 @@ public class Gunner : BT, AnimInterface
     // HP 다 떨어지면 사망
     bool Dead()
     {
-        if (enemyHP < 0f)
+        if (enemyHP <= 0f)
         {
-            StopCoroutine("BehaviourTree");
-            gameObject.SetActive(false);
+            animator.SetBool("isAttack", false);
+            animator.SetBool("isMoving", false);
+            animator.SetBool("isDead", true);
+            agent.isStopped = true;
+            //StopCoroutine("BehaviourTree");
             return true;
         }
         return false;
@@ -432,7 +436,8 @@ public class Gunner : BT, AnimInterface
         }
         if (other.name.Contains("GunnerAttack"))
         {
-            enemyHP -= (int)data[(int)Class.Gunner]["Damage"];
+            if (other.GetComponent<EnemyAttack>().Attacker != gameObject)
+                enemyHP -= (int)data[(int)Class.Gunner]["Damage"];
         }
         if (other.name.Contains("NinjaAttack"))
         {

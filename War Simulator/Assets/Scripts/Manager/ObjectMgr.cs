@@ -40,7 +40,7 @@ public class ObjectMgr : MonoBehaviour
         }
     }
 
-    public static GameObject SpawnPool(string tag, Vector3 pos, Quaternion rot)
+    public static GameObject SpawnPool(string tag, Vector3 pos, Quaternion rot, GameObject attacker = null)
     {
         if (!poolDictionary.ContainsKey(tag))
             return null;
@@ -56,6 +56,9 @@ public class ObjectMgr : MonoBehaviour
                 ObjectSpawn.transform.position = pos;
                 ObjectSpawn.transform.rotation = rot;
 
+                if (tag == "WarriorMAttack" || tag == "WarriorWAttack" || tag == "GunnerAttack")
+                    ObjectSpawn.GetComponent<EnemyAttack>().Attacker = attacker;
+
                 poolDictionary[tag].Enqueue(ObjectSpawn);
 
                 return ObjectSpawn;
@@ -70,6 +73,9 @@ public class ObjectMgr : MonoBehaviour
 
         newObject.transform.position = pos;
         newObject.transform.rotation = rot;
+
+        if (tag == "WarriorMAttack" || tag == "WarriorWAttack" || tag == "GunnerAttack")
+            newObject.GetComponent<EnemyAttack>().Attacker = attacker;
 
         newObject.name = tag.ToString() + " " + poolDictionary[tag].Count;
 

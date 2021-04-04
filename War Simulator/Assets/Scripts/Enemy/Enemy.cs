@@ -202,8 +202,8 @@ public class Enemy : BT
     {
         if (enemyHP < 0f)
         {
-            StopCoroutine("BehaviourTree");
-            gameObject.SetActive(false);
+            //StopCoroutine("BehaviourTree");
+            //gameObject.SetActive(false);
             return true;
         }
         return false;
