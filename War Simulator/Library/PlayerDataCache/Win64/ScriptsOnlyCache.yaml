@@ -268,6 +268,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 64
@@ -484,27 +486,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
     - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -529,8 +515,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11430}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -761,7 +745,7 @@ ScriptsOnlyBuild:
     className: Title
   - hash:
       serializedVersion: 2
-      Hash: 27e530f1f2903eb1e9e767b8e95f01f4
+      Hash: a6b485a2edf33f85641fea5112b1ce5e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraMgr
@@ -935,7 +919,7 @@ ScriptsOnlyBuild:
     className: UIMgr
   - hash:
       serializedVersion: 2
-      Hash: 12e89c5da5aa47e841b31e2067d6dc25
+      Hash: e02ee0ad3ac16669a58610df46982831
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyAttack
@@ -1103,10 +1087,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 19
   scenePathNames:
+  - Assets/Scenes/Stage2.unity
   - Assets/Scenes/Title.unity
   - Assets/Scenes/SeleteStage.unity
   - Assets/Scenes/Stage1.unity
-  - Assets/Scenes/Stage2.unity
   - Assets/Scenes/Stage3.unity
   - Assets/Scenes/Loading.unity
-  playerPath: C:/Users/user/Desktop/Bule/hgb/ONProject.exe
+  playerPath: C:/Users/user/Desktop/Bule/HGB/ONProject.exe

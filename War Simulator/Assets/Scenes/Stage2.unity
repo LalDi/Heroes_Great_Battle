@@ -689,7 +689,7 @@ PrefabInstance:
     - target: {fileID: 7308768895411966299, guid: 348cc6ea9d63b5242bddb1d00e1fc7d7,
         type: 3}
       propertyPath: m_Name
-      value: WarriorM (1)
+      value: WarriorM
       objectReference: {fileID: 0}
     - target: {fileID: 7308768895411966299, guid: 348cc6ea9d63b5242bddb1d00e1fc7d7,
         type: 3}
@@ -1458,7 +1458,7 @@ PrefabInstance:
     - target: {fileID: 2977044296328725263, guid: f00a83700761ce74dba7e2aa106f32cf,
         type: 3}
       propertyPath: m_Name
-      value: Gunner (4)
+      value: Gunner
       objectReference: {fileID: 0}
     - target: {fileID: 2977044296328725263, guid: f00a83700761ce74dba7e2aa106f32cf,
         type: 3}
@@ -1983,7 +1983,7 @@ PrefabInstance:
     - target: {fileID: 2977044296328725263, guid: f00a83700761ce74dba7e2aa106f32cf,
         type: 3}
       propertyPath: m_Name
-      value: Gunner (1)
+      value: Gunner
       objectReference: {fileID: 0}
     - target: {fileID: 2977044296328725263, guid: f00a83700761ce74dba7e2aa106f32cf,
         type: 3}
@@ -2177,7 +2177,7 @@ PrefabInstance:
     - target: {fileID: 2977044296328725263, guid: f00a83700761ce74dba7e2aa106f32cf,
         type: 3}
       propertyPath: m_Name
-      value: Gunner (3)
+      value: Gunner
       objectReference: {fileID: 0}
     - target: {fileID: 2977044296328725263, guid: f00a83700761ce74dba7e2aa106f32cf,
         type: 3}
@@ -3278,7 +3278,7 @@ PrefabInstance:
     - target: {fileID: 3427692232919965814, guid: df5cbaf108111c24b8bab369bd6d7c23,
         type: 3}
       propertyPath: m_Name
-      value: WarriorW (1)
+      value: WarriorW
       objectReference: {fileID: 0}
     - target: {fileID: 3427692232919965814, guid: df5cbaf108111c24b8bab369bd6d7c23,
         type: 3}
@@ -5197,7 +5197,7 @@ PrefabInstance:
     - target: {fileID: 2977044296328725263, guid: f00a83700761ce74dba7e2aa106f32cf,
         type: 3}
       propertyPath: m_Name
-      value: Gunner (2)
+      value: Gunner
       objectReference: {fileID: 0}
     - target: {fileID: 2977044296328725263, guid: f00a83700761ce74dba7e2aa106f32cf,
         type: 3}
