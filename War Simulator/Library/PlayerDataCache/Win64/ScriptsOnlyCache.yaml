@@ -23,8 +23,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -1093,4 +1095,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Stage1.unity
   - Assets/Scenes/Stage3.unity
   - Assets/Scenes/Loading.unity
-  playerPath: C:/Users/user/Desktop/Bule/HGB/ONProject.exe
+  playerPath: C:/Users/LalDI/Desktop/movie/hgb/ONProject.exe

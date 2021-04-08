@@ -269,9 +269,16 @@ public class Warrior : BT
             animator.SetBool("isDead", true);
             agent.isStopped = true;
             //StopCoroutine("BehaviourTree");
+            StartCoroutine(DeadDelay());
             return true;
         }
         return false;
+    }
+
+    IEnumerator DeadDelay(float Time = 5)
+    {
+        yield return new WaitForSeconds(Time);
+        gameObject.SetActive(false);
     }
 
     IEnumerator Delay(float delay)

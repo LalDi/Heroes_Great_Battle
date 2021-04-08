@@ -228,7 +228,7 @@ public class Gunner : BT, AnimInterface
             transform.LookAt(target.transform);
             ObjectMgr.SpawnPool("GunnerAttack", muzzle.transform.position, Quaternion.Euler(shot), gameObject);
             bullet--;
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.33f);
             StartCoroutine(ThreatShoot(target, ++count));
         }
         else
@@ -415,9 +415,16 @@ public class Gunner : BT, AnimInterface
             animator.SetBool("isDead", true);
             agent.isStopped = true;
             //StopCoroutine("BehaviourTree");
+            StartCoroutine(DeadDelay());
             return true;
         }
         return false;
+    }
+
+    IEnumerator DeadDelay(float Time = 5)
+    {
+        yield return new WaitForSeconds(Time);
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -112,6 +112,7 @@ public class EnemyAttack : MonoBehaviour
         //{
         //    rigd.velocity = transform.localRotation * Vector3.forward * speed;
         //}
+        StartCoroutine(Disable());
     }
 
     void OnDisable()
@@ -121,6 +122,12 @@ public class EnemyAttack : MonoBehaviour
             //rigd.velocity = Vector3.zero;
             transform.Rotate(Vector3.zero);
         }
+    }
+
+    IEnumerator Disable()
+    {
+        yield return new WaitForSeconds(5);
+        gameObject.SetActive(false);
     }
 
     IEnumerator Delay(float delay)
